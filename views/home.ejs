@@ -1,0 +1,28 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="px-4 py-5 my-5 text-center"> 
+        <h1 class="display-5 fw-bold text-body-emphasis">Abdullah's Books</h1> 
+        <div class="col-lg-6 mx-auto"> 
+            <p class="lead mb-4">All the books I have ever read! Sort as you like.</p> 
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"> 
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Newest</button> 
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Rating</button> 
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Title</button> 
+            </div> 
+        </div> 
+    </div>
+
+    <div class="container col-xxl-8 px-4 py-5"> 
+        <div class="row flex-lg-row align-items-center g-5 py-5"> 
+            <div class="col-10 col-sm-8 col-lg-6"> 
+                <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"> 
+            </div> 
+            <div class="col-lg-6"> 
+                <h3 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Book Title</h3> 
+                <p class="lead">Date Read: 1/1/2025 Rating: 9/10</p>
+                <p class="lead">Book Notes. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+            </div> 
+        </div> 
+    </div>
+
+<%- include("partials/footer.ejs") %>

@@ -19,6 +19,18 @@ const db = new pg.Client({
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+app.get("/", (req, res) => {
+  res.render("home.ejs");
+});
+
+app.get("/add", (req, res) => {
+  res.render("add.ejs");
+});
+
+app.get("/edit", (req, res) => {
+  res.render("edit.ejs");
+});
+
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`)
 });
