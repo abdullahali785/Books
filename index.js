@@ -10,26 +10,44 @@ const port = 3000;
 const db = new pg.Client({
   user: "postgres",
   host: "localhost",
-  database: "world",
-  password: fs.readFileSync("password.txt", "utf8"),
+  database: "books",
+  password: "abdullah2006ali",
   port: 5432,
 });
-//db.connect();
+db.connect();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.render("home.ejs");
+app.get("/", async (req, res) => {
+  const data = await db.query("SELECT * FROM books ORDER BY id ASC;");
+  console.log(data.rows);
+  res.render("home.ejs", { books : data.rows });
 });
+
 
 app.get("/add", (req, res) => {
   res.render("add.ejs");
 });
 
-app.get("/edit", (req, res) => {
-  res.render("edit.ejs");
+app.post("/add", (req, res) => {
+  //Post /add form
 });
+
+
+app.get("/edit/:id", async (req, res) => {
+  const id = req.params.id;
+  const result = await db.query("SELECT * FROM books WHERE id = $1", [id]);
+
+  res.render("edit.ejs", { book : result.rows[0] });
+  //const book = db.query("SELECT * FROM books WHERE id = $1", [id]);
+  //res.render("edit.ejs", { book });
+});
+
+app.post("/edit/:id", (req, res) => {
+  //Post /edit form.
+});
+
 
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`)
