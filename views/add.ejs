@@ -8,31 +8,31 @@
             
             <div class="row g-5">
                 <div>
-                    <form class="needs-validation" novalidate="">  
+                    <form class="needs-validation" novalidate="" method="POST" action="/add">  
                         <div class="py-2"> 
                             <label for="title" class="form-label">Book Title</label> 
                             <div class="input-group has-validation"> 
-                                <input type="text" class="form-control" id="title" placeholder="Title" required=""> 
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Title" required=""> 
                                 <div class="invalid-feedback">Book title is required.</div> 
                             </div> 
                         </div> 
                         <div class="py-2"> 
                             <label for="author" class="form-label">Author's Name</label> 
-                            <input type="author" class="form-control" id="author" placeholder="Notes"> 
+                            <input type="text" class="form-control" id="author" name="author" placeholder="Name"> 
                             <div class="invalid-feedback">Please enter author's full name.</div> 
                         </div>
                         <div class="py-2"> 
                             <label for="notes" class="form-label">Book Notes</label> 
-                            <input type="text" class="form-control" id="notes" placeholder="Summary"> 
+                            <input type="text" class="form-control" id="notes" name="notes" placeholder="Summary"> 
                         </div> 
                         <div class="row py-2">
                             <div class="col"> 
                                 <label for="coverid" class="form-label">Cover ID</label> 
-                                <input type="text" class="form-control" id="coverid" placeholder="ID"> 
+                                <input type="text" class="form-control" id="coverid" name="coverID" placeholder="ID"> 
                             </div> 
                             <div class="col"> 
                                 <label for="rating" class="form-label">Book Rating</label> 
-                                <select class="form-select" id="country" required=""> 
+                                <select class="form-select" id="rating" name="rating" required> 
                                     <option value="">Select rating</option> 
                                     <option>1</option>
                                     <option>2</option>

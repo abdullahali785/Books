@@ -8,48 +8,39 @@
             
             <div class="row g-5">
                 <div>
-                    <form class="needs-validation" novalidate="">  
+                    <form class="needs-validation" novalidate="" method="POST" action="/edit/<%= book.id %>">  
                         <div class="py-2"> 
                             <label for="title" class="form-label">Book Title</label> 
                             <div class="input-group has-validation"> 
-                                <input type="text" class="form-control" id="title" placeholder="Title" required=""> 
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Title" required="" value="<%= book.title %>"> 
                                 <div class="invalid-feedback">Book title is required.</div> 
                             </div> 
                         </div> 
                         <div class="py-2"> 
                             <label for="author" class="form-label">Author's Name</label> 
-                            <input type="author" class="form-control" id="author" placeholder="Notes"> 
+                            <input type="text" class="form-control" id="author" name="author" placeholder="Notes" value="<%= book.author %>"> 
                             <div class="invalid-feedback">Please enter author's full name.</div> 
                         </div>
                         <div class="py-2"> 
                             <label for="notes" class="form-label">Book Notes</label> 
-                            <input type="text" class="form-control" id="notes" placeholder="Summary"> 
+                            <input type="text" class="form-control" id="notes" name="notes" placeholder="Summary" value="<%= book.notes %>"> 
                         </div> 
                         <div class="row py-2">
                             <div class="col"> 
                                 <label for="coverid" class="form-label">Cover ID</label> 
-                                <input type="text" class="form-control" id="coverid" placeholder="ID"> 
+                                <input type="text" class="form-control" id="coverid" name="coverid" placeholder="ID" value="<%= book.cover_id %>"> 
                             </div> 
                             <div class="col"> 
                                 <label for="rating" class="form-label">Book Rating</label> 
-                                <select class="form-select" id="country" required=""> 
-                                    <option value="">Select rating</option> 
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
+                                <select class="form-select" id="rating" name="rating"> 
+                                    <% for(let i=1; i<=10; i++) { %>
+                                        <option value="<%= i %>" <%= book.rating == i ? "selected" : "" %>><%= i %></option>
+                                    <% } %>
                                 </select> 
-                                <div class="invalid-feedback">Please select a rating from 1 to 10</div> 
-                            </div> 
+                            </div>
                             <div class="col"> 
                                 <label for="date" class="form-label">Date Read</label> 
-                                <input type="date" name="date" id="date" class="form-select">
+                                <input type="date" name="date" id="date" name="date" class="form-select" value="<%= book.date_read.toISOString().split('T')[0] %>">
                                 <div class="invalid-feedback">Please provide a valid state.</div> 
                             </div> 
                         </div>

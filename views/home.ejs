@@ -8,11 +8,14 @@
                 <button type="button" class="btn btn-outline-secondary btn-lg px-4">Newest</button> 
                 <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Rating</button> 
                 <button type="button" class="btn btn-outline-secondary btn-lg px-4">Title</button> 
-            </div> 
-        </div> 
+            </div>
+            <div class="d-grid gap-2 mt-3">
+                <a href="/add" class="btn btn-success btn-lg">Add a book!</a>
+            </div>
+        </div>
     </div>
 
-    <div class="container col-xxl-8 px-4 py-5"> 
+    <div class="container col-xxl-8 px-4 pb-5"> 
         <% books.forEach(book => { %>
             <div class="row flex-lg-row align-items-center g-5 py-5"> 
                 <div class="col-10 col-sm-8 col-lg-6"> 
@@ -21,12 +24,13 @@
                 <div class="col-lg-6"> 
                     <h4 class="display-6 fw-bold text-body-emphasis lh-1 mb-3"> <%= book.title %> </h4> 
                     <p class="lead col">Author: <%= book.author %></p>
-                    <div class="row">
-                        <p class="lead col">Date Read: <%= book.date_read.toISOString().slice(0,10) %></p>
-                        <p class="lead col">Rating: <%= book.rating %></p>
+                    <div class="d-flex gap-4">
+                        <p class="lead mb-0">Date Read: <%= book.date_read.toISOString().slice(0,10) %></p>
+                        <p class="lead mb-0">Rating: <%= book.rating %></p>
                     </div>
                     <p class="lead"><%= book.notes %></p>
                     <a href="/edit/<%= book.id %>" class="btn btn-outline-secondary btn-lg px-4">Edit</a>
+                    <a href="/delete/<%= book.id %>" class="btn btn-lg px-4 btn-dark">Delete</a>
                 </div> 
             </div>
         <% }) %> 
