@@ -5,9 +5,9 @@
         <div class="col-lg-6 mx-auto"> 
             <p class="lead mb-4">All the books I have ever read! Sort as you like.</p> 
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"> 
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Newest</button> 
-                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Rating</button> 
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Title</button> 
+                <a href="/?sort=date" class="btn <%= sort === 'date' ? 'btn-success' : 'btn-outline-secondary' %> btn-lg px-4">Newest</a> 
+                <a href="/?sort=rating" class="btn <%= sort === 'rating' ? 'btn-success' : 'btn-outline-secondary' %> btn-lg px-4 gap-3">Rating</a> 
+                <a href="/?sort=title" class="btn <%= sort === 'title' ? 'btn-success' : 'btn-outline-secondary' %> btn-lg px-4">Title</a> 
             </div>
             <div class="d-grid gap-2 mt-3">
                 <a href="/add" class="btn btn-success btn-lg">Add a book!</a>
@@ -19,7 +19,7 @@
         <% books.forEach(book => { %>
             <div class="row flex-lg-row align-items-center g-5 py-5"> 
                 <div class="col-10 col-sm-8 col-lg-6"> 
-                    <img src="https://covers.openlibrary.org/b/olid/OL7440033M-S.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"> 
+                    <img src="https://covers.openlibrary.org/b/isbn/<%= book.cover_id %>-L.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"> 
                 </div> 
                 <div class="col-lg-6"> 
                     <h4 class="display-6 fw-bold text-body-emphasis lh-1 mb-3"> <%= book.title %> </h4> 

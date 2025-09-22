@@ -20,9 +20,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", async (req, res) => {
-  const data = await db.query("SELECT * FROM books ORDER BY id ASC;");
-  //console.log(data.rows);
-  res.render("home.ejs", { books : data.rows });
+  const sort = req.query.sort || "rating";
+  let orderBy = "rating DESC"; 
+
+  if (sort === "date") orderBy = "date_read DESC";
+  if (sort === "title") orderBy = "title ASC";
+
+  const data = await db.query(`SELECT * FROM books ORDER BY ${orderBy};`);
+  res.render("home.ejs", { books: data.rows, sort });
 });
 
 
@@ -55,10 +60,10 @@ app.get("/edit/:id", async (req, res) => {
 app.post("/edit/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const { title, author, notes, coverID, rating, date } = req.body;
+    const { title, author, notes, coverid, rating, date } = req.body;
 
     await db.query("UPDATE books SET title = $1, author = $2, notes = $3, cover_id = $4, rating = $5, date_read = $6 WHERE id = $7",
-      [title, author, notes, coverID, rating, date, id]
+      [title, author, notes, coverid, rating, date, id]
     );
     res.redirect("/");
   } catch (err) {
