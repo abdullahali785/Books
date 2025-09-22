@@ -28,7 +28,7 @@
                         <p class="lead mb-0">Date Read: <%= book.date_read.toISOString().slice(0,10) %></p>
                         <p class="lead mb-0">Rating: <%= book.rating %></p>
                     </div>
-                    <p class="lead"><%= book.notes %></p>
+                    <div class="py-4"><p class="lead"><%= book.notes %></p></div>
                     <a href="/edit/<%= book.id %>" class="btn btn-outline-secondary btn-lg px-4">Edit</a>
                     <a href="/delete/<%= book.id %>" class="btn btn-lg px-4 btn-dark">Delete</a>
                 </div> 
