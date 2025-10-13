@@ -7,14 +7,36 @@ import pg from "pg";
 const app = express();
 const port = 3000;
 
+let password;
+
+try {
+  if (process.env.KEY) {
+    password = process.env.KEY;
+    console.log("Loaded password from environment variable.");
+  } else {
+    password = fs.readFileSync("password.txt", "utf8").trim();
+    console.log("Loaded password from local file.");
+  }
+} catch (err) {
+  console.error("Failed to load password:", err.message);
+  process.exit(1);
+}
+
 const db = new pg.Client({
   user: "postgres",
   host: "localhost",
   database: "books",
-  password: process.env.KEY || fs.readFileSync("password.txt", "utf8"),
+  password,
   port: 5432,
 });
-db.connect();
+
+try {
+  await db.connect();
+  console.log("Database connected successfully.");
+} catch (err) {
+  console.error("Database connection failed:", err.message);
+  process.exit(1);
+}
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
