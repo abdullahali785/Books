@@ -11,7 +11,7 @@ const db = new pg.Client({
   user: "postgres",
   host: "localhost",
   database: "books",
-  password: process.env.KEY,
+  password: process.env.KEY || fs.readFileSync("password.txt", "utf8"),
   port: 5432,
 });
 db.connect();
