@@ -27,7 +27,7 @@ You can see what books I have read, sort them by title, date, or rating. I have 
 
 ---
 
-[Home](public/Home.png?raw=True)
+![Home](public/Home.png?raw=true)
 
 ---
 
