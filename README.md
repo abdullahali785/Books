@@ -1,7 +1,7 @@
 # Abdullah's Books 📚
 
-A simple book tracker web app built with **Node.js (Express)**, **PostgreSQL**, and **EJS templates**.  
-It allows you to store books you've read, sort them, and display their cover images using the **OpenLibrary Covers API**.
+A personal book tracker web app built with **Node.js (Express)**, **PostgreSQL**, and **EJS**.  
+You can see what books I have read, sort them by title, date, or rating. I have used the **OpenLibrary Covers API** to display cover images for the books I've read.
 
 ---
 
@@ -13,7 +13,7 @@ It allows you to store books you've read, sort them, and display their cover ima
   - **Rating** (Highest first)
   - **Title** (Alphabetical)
 - Edit book details.
-- Delete a book (with confirmation page).
+- Delete a book.
 - Default book cover image handling (if no cover is available).
 
 ---
