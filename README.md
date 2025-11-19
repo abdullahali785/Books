@@ -30,14 +30,7 @@ You can see what books I have read, sort them by title, date, or rating. I have 
 ## 🏠 Home Page
 ![Home](public/Home.png?raw=true)
 
-## 📘 Display a Book
-![Book](public/Book.png?raw=true)
 
-## ✍🏻 Edit
-![Edit](public/Edit.png?raw=true)
-
-## ‼️ Delete
-![Delete](public/Delete.png?raw=true)
 
 ---
 
